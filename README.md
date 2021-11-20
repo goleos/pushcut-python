@@ -1,11 +1,19 @@
 # Pushcut API Python Client
-A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html). See detailed description [here](https://www.pushcut.io/support_notifications.html)
+A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html). See detailed description [here](https://www.pushcut.io/support_notifications.html).
+
+## Authorisation
+API Key is used as the authorisation method. Note that this is not the same as "Webhook secret".
+
+To obtain an API key:
+1. In the Pushcut app, go into the "Account" tab
+2. Under "INTEGRATIONS" section click on "Add API Key"
+3. Give it a name and click "Generate"
 
 ## Usage
 ```python
 from pushcut import Client, Notification, NotificationAction
 
-client = Client(api_key="super-secret key", default_notification_name="My First Notification")
+client = Client(api_key="super-secret-key", default_notification_name="My First Notification")
 
 # Basic functionality
 
