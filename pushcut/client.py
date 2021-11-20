@@ -32,7 +32,6 @@ class Client:
     def _perform_request(self, method: str, target: str, json_data: Optional) -> str:
         response = requests.request(method=method, url=f"{self.home_endpoint}/{target}", json=json_data,
                                    headers=self.headers)
-        print(json_data)
         status_code = response.status_code
         info = response.text
         if 200 <= status_code <= 299:

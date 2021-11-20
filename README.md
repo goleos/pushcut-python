@@ -10,41 +10,43 @@ To obtain an API key:
 3. Give it a name and click "Generate"
 
 ## Usage
+### Example: sending a notification to my phone
 ```python
 from pushcut import Client, Notification, NotificationAction
-
-client = Client(api_key="super-secret-key", default_notification_name="My First Notification")
-
-# Basic functionality
+client = Client(api_key="super_secret_api_key", default_notification_name="My First Notification")
 
 client.devices()
-# [{'id': 'iPhone 11', 'name': 'iPhone 11'}, {'id': 'iPad Pro', 'name': 'iPad Pro'}]
+[{'id': 'iPhone 11', 'name': 'iPhone 11'}, {'id': 'iPad Pro', 'name': 'iPad Pro'}]
 client.notifications()
-# [{'id': 'My First Notification', 'title': 'Automate Away 🚀'}]
+[{'id': 'My First Notification', 'title': 'Automate Away 🚀'}]
 
-# Sending Notifications
 
 my_notification = Notification(
     title="Python Client", 
     text="This message was sent from the Pushcut API Python Client"
 )
-# Add an image
-my_notification.image = "https://picsum.photos/200"
-
-# Add actions
+# Add an image of a cute puppy
+my_notification.image = "https://upload.wikimedia.org/wikipedia/commons/6/68/Szczenie_Jack_Russell_Terrier3.jpg"
+# If we click on the notification, we want to open the webpage example.com
 my_notification.defaultAction = NotificationAction(url="https://example.com")
 
 # Set notification to only appear on my phone
 my_notification.devices = ["iPhone 11"]
 
-other_action = NotificationAction(
-    name="Turn Off The Lights",
-    input="off",
-    shortcut="Change the lights",
+low_power_mode_on = NotificationAction(
+    name="⚡ Turn ON Low Power Mode ⚡",
+    shortcut="Enable Low Power Mode",
     keepNotification=False
 )
-
-my_notification.actions.append(other_action)
+my_notification.actions.append(low_power_mode_on)
 
 client.send_notification(my_notification)
 ```
+
+<img alt="Notification Screenshot" src="screenshots/notification1.PNG"/> 
+
+<img alt="Notification Screenshot" height="200" src="screenshots/notification1_2.PNG" width="100"/>
+
+
+
+Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons
