@@ -53,6 +53,7 @@ client.send_notification(my_notification)
   <img src="screenshots/notification1.PNG" width="400" />
   <img src="screenshots/notification1_2.PNG" width="400" />
 </p>
+
 *Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons*
 
 ## Errors and Exceptions
