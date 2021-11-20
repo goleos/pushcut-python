@@ -15,7 +15,7 @@ class Client:
     Create a client instance as follows:
 
         >>> import pushcut
-        >>> client = pushcut.Client(api_key="super-secret key", default_notification_name="foo")
+        >>> client = pushcut.Client(api_key="super-secret key", default_notification_name="My First Notification")
 
     :param api_key: you can obtain an API key under the 'Integrations' tab of the pushcut app. This is not the same
         as webhook secret
