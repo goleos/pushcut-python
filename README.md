@@ -1,5 +1,5 @@
 # Pushcut API Python Client
-A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html).
+A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html). See detailed description [here](https://www.pushcut.io/support_notifications.html)
 
 ## Usage
 ```python
