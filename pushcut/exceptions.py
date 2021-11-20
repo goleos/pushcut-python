@@ -1,5 +1,6 @@
 from requests import Response
 
+
 class PushcutAPIException(Exception):
 
     def __init__(self, status_code, message):

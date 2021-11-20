@@ -2,6 +2,9 @@ from typing import Optional, List
 
 
 class NotificationAction:
+    """
+    Refer to https://www.pushcut.io/webapi.html for description of parameters
+    """
 
     @classmethod
     def urlBackgroundOptions(cls, httpMethod: Optional[str] = None, httpContentType: Optional[str] = None,
@@ -27,6 +30,9 @@ class NotificationAction:
 
 
 class Notification:
+    """
+    Refer to https://www.pushcut.io/webapi.html for description of parameters
+    """
 
     def __init__(self,
                  title: Optional[str] = None, text: Optional[str] = None, sound: Optional[str] = None,
