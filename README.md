@@ -43,9 +43,15 @@ my_notification.actions.append(low_power_mode_on)
 client.send_notification(my_notification)
 ```
 
-<img alt="Notification Screenshot" src="screenshots/notification1.PNG"/> 
+<p float="left">
+  <img src="screenshots/notification1.PNG" width="100" />
+  <img src="screenshots/notification1_2.PNG" width="100" />
+</p>
 
-<img alt="Notification Screenshot" height="200" src="screenshots/notification1_2.PNG" width="100"/>
+
+[comment]: <> (<img alt="Notification Screenshot" src="screenshots/notification1.PNG"/> )
+
+[comment]: <> (<img alt="Notification Screenshot" height="200" src="screenshots/notification1_2.PNG" width="100"/>)
 
 
 
