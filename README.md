@@ -1,5 +1,11 @@
 # Pushcut API Python Client
-A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html). See detailed description [here](https://www.pushcut.io/support_notifications.html).
+A python client used to interact with the [Pushcut API](https://www.pushcut.io/webapi.html). See detailed description
+with explanations [here](https://www.pushcut.io/support_notifications.html).
+
+With this client you can trigger any enabled notification in your Pushcut account. 
+You can also send any custom notification. If you have an Automation Server running, you can tell the server to
+execute any enabled shortcut or homekit scene. If you have Automation Server Extended, you can also use this client to 
+delay the execution of a given shortcut or homekit scene.
 
 ## Authorisation
 API Key is used as the authorisation method. Note that this is not the same as "Webhook secret".
@@ -43,16 +49,25 @@ my_notification.actions.append(low_power_mode_on)
 client.send_notification(my_notification)
 ```
 
-<p float="left">
-  <img src="screenshots/notification1.PNG" width="100" />
-  <img src="screenshots/notification1_2.PNG" width="100" />
+<p float="left" align="middle">
+  <img src="screenshots/notification1.PNG" width="400" />
+  <img src="screenshots/notification1_2.PNG" width="400" />
 </p>
+*Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons*
 
+## Errors and Exceptions
+If the response code of an http request made by client does not start with 2 (ie. 200, 201 etc), then a 
+`PushcutAPIException` from `pushcut.exceptions` will be raised.
 
-[comment]: <> (<img alt="Notification Screenshot" src="screenshots/notification1.PNG"/> )
+Below is a list of API-related errors the client can raise:
 
-[comment]: <> (<img alt="Notification Screenshot" height="200" src="screenshots/notification1_2.PNG" width="100"/>)
-
-
-
-Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons
+| HTTP Response Code |                                 Error Message Example                                |           Exception Raised          |
+|:------------------:|:------------------------------------------------------------------------------------:|:-----------------------------------:|
+| 400                | Timeout must be a number between 1 and 45 seconds, or set to 'nowait'.               | `PushcutBadRequestError`            |
+| 401                |                                                                                      | `PushcutUnauthorisedError`          |
+| 403                | Invalid API-Key provided.                                                            | `PushcutForbiddenError`             |
+| 402                | Automation Server Extended is required to schedule delayed requests.                 | `PushcutSubscriptionRequiredError`  |
+| 404                | Notification not found.                                                              | `PushcutNotFoundError`              |
+| 502                | Automation Server is currently not running on any iOS device linked to this account. | `PushcutAutomationServerNotRunning` |
+| 504                | iOS device did not respond in time.                                                  | `PushcutAutomationServerTimeout`    |
+| others             |                                                                                      | `PushcutAPIException`               |

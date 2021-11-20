@@ -35,6 +35,11 @@ class PushcutSubscriptionRequiredError(PushcutAPIException):
     pass
 
 
+class PushcutForbiddenError(PushcutAPIException):
+    pass
+
+
+
 def raise_pushcut_api_exception(http_response: Response):
     status_code = http_response.status_code
 
@@ -55,5 +60,7 @@ def raise_pushcut_api_exception(http_response: Response):
         raise PushcutAutomationServerTimeout(status_code, message)
     elif status_code == 402:
         raise PushcutSubscriptionRequiredError(status_code, message)
+    elif status_code == 403:
+        raise PushcutForbiddenError(status_code, message)
     else:
         raise PushcutAPIException(status_code, message)
