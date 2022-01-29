@@ -54,12 +54,11 @@ client.send_notification(my_notification)
   <img src="screenshots/notification1_2.PNG" width="400" />
 </p>
 
-*Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons*
+*Picture Attribution: Szczenie Jack Russell Terrier.jpg: Siristruderivative work: Wuhazet, Public domain, via Wikimedia Commons*
 
 ## Errors and Exceptions
 If the response code of an http request made by client does not start with 2 (ie. 200, 201 etc), then a 
 `PushcutAPIException` from `pushcut.exceptions` will be raised.
-
 Below is a list of API-related errors the client can raise:
 
 | HTTP Response Code |                                 Error Message Example                                |           Exception Raised          |
